@@ -1,15 +1,16 @@
 package io.swagger.model;
 
-import java.util.Objects;
+import java.util.*;
+
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.databind.JsonNode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.model.ProductRelationship;
 import io.swagger.model.ProductSpecificationRef;
 import io.swagger.model.RelatedPlaceReforValue;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -39,6 +40,14 @@ public class Product   {
   @JsonProperty("productRelationship")
   @Valid
   private List<ProductRelationship> productRelationship = null;
+
+
+  private Map<String, JsonNode> dynamic = new HashMap<>();
+
+  @JsonAnySetter
+  public void add(String key, JsonNode value) {
+    this.dynamic.put(key, value);
+  }
 
   public Product id(String id) {
     this.id = id;
@@ -213,6 +222,7 @@ public class Product   {
     sb.append("    productSpecification: ").append(toIndentedString(productSpecification)).append("\n");
     sb.append("    place: ").append(toIndentedString(place)).append("\n");
     sb.append("    productRelationship: ").append(toIndentedString(productRelationship)).append("\n");
+    sb.append("    dynamic: ").append(toIndentedString(dynamic)).append("\n");
     sb.append("}");
     return sb.toString();
   }
