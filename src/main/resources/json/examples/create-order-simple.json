@@ -1,0 +1,66 @@
+{
+  "externalId" : "993de38e-56e3-45f8-9f5a-c597302f6e4c",
+  "buyerRequestDate" : 1569444822.961000000,
+  "requestedCompletionDate" : 1569444822.967000000,
+  "orderActivity" : "INSTALL",
+  "desiredResponse" : "CONFIRMATION_ONLY",
+  "orderVersion" : "1.0.0",
+  "relatedParty" : [ {
+    "id" : "bartoszm",
+    "role" : [ "dev", "empl" ],
+    "name" : "Bartosz",
+    "emailAddress" : "bartosz.michalik@amartus.com",
+    "number" : "0112"
+  } ],
+  "orderItem" : [ {
+    "id" : "12cba147-b319-4617-a5f9-0a84ae3fef7f",
+    "action" : "INSTALL",
+    "productOffering" : {
+      "id" : "1011dc26-bdb4-4dee-8770-0efc024a9698"
+    },
+    "product" : {
+      "productSpecification" : {
+        "id" : "uni1",
+        "describing" : {
+          "@type" : "UNISpec",
+          "@schemaLocation" : "uri:mef:v1:UNISpec"
+        }
+      }
+    }
+  }, {
+    "id" : "d99c9668-bd0e-4be8-b8cd-e9e0ab0f9e01",
+    "action" : "INSTALL",
+    "productOffering" : {
+      "id" : "68932aef-8603-4f87-bdf3-88ec97769be1"
+    },
+    "product" : {
+      "productSpecification" : {
+        "id" : "uni2",
+        "describing" : {
+          "@type" : "UNISpec",
+          "@schemaLocation" : "uri:mef:v1:UNISpec"
+        },
+        "synchronousMode" : {
+          "linkMode" : "1",
+          "syncModeEnabled" : true
+        },
+        "physicalLayer" : "10BASE-T"
+      }
+    }
+  }, {
+    "id" : "fbe63db3-5116-4b34-b717-9124f24162b8",
+    "action" : "INSTALL",
+    "productOffering" : {
+      "id" : "7c2f301d-a105-444e-a157-cc12cd63857e"
+    },
+    "product" : {
+      "productSpecification" : {
+        "id" : "eline",
+        "describing" : {
+          "@type" : "ELineSpec",
+          "@schemaLocation" : "uri:mef:v1:ELineSpec"
+        }
+      }
+    }
+  } ]
+}

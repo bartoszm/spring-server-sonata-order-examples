@@ -22,27 +22,28 @@ public class SimplePayloadExample {
         order.setOrderVersion("1.0.0");
         order.setBuyerRequestDate(OffsetDateTime.now());
         order.setRequestedCompletionDate(OffsetDateTime.now());
-        order.addOrderItemItem(item("uni1"));
-        order.addOrderItemItem(item("uni2"));
-        order.addOrderItemItem(item("eline"));
+        order.addOrderItemItem(item("uni1", "UNISpec"));
+        order.addOrderItemItem(item("uni2", "UNISpec"));
+        order.addOrderItemItem(item("eline", "ELineSpec"));
         order.setDesiredResponse(DesiredOrderResponses.CONFIRMATION_ONLY);
         order.setOrderActivity(OrderActivity.INSTALL);
         serialize(std(), order);
     }
 
-    private static ProductOrderItemCreate item(String name) {
+    private static ProductOrderItemCreate item(String name, String spec) {
         return new ProductOrderItemCreate()
                 .action(ProductActionType.INSTALL)
                 .id(UUID.randomUUID().toString())
                 .productOffering(new ProductOfferingRef().id(UUID.randomUUID().toString()))
-                .product(product(name + "spec-xyz"));
+                .product(product(name, spec));
     }
 
-    private static Product product(String spec) {
+    private static Product product(String id, String spec) {
         return new Product()
                 .productSpecification(
                         new ProductSpecificationRef()
-                                .id(spec)
+                                .id(id)
+                                .describing(new Describing().type(spec).schemaLocation("uri:mef:v1:" + spec))
                 );
     }
 
@@ -72,4 +73,6 @@ public class SimplePayloadExample {
             throw new IllegalStateException(e);
         }
     }
+
+
 }
