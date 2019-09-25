@@ -30,7 +30,7 @@ public class ProductSpecificationRef   {
   /**
    * A unique identifier for the product spec, within the product spec domain. It is assigned by the seller and communicated to the buyer at on-boarding time.
    * @return id
-  **/
+   **/
   @ApiModelProperty(value = "A unique identifier for the product spec, within the product spec domain. It is assigned by the seller and communicated to the buyer at on-boarding time.")
 
 
@@ -50,7 +50,7 @@ public class ProductSpecificationRef   {
   /**
    * Get describing
    * @return describing
-  **/
+   **/
   @ApiModelProperty(value = "")
 
   @Valid
@@ -74,7 +74,7 @@ public class ProductSpecificationRef   {
     }
     ProductSpecificationRef productSpecificationRef = (ProductSpecificationRef) o;
     return Objects.equals(this.id, productSpecificationRef.id) &&
-        Objects.equals(this.describing, productSpecificationRef.describing);
+            Objects.equals(this.describing, productSpecificationRef.describing);
   }
 
   @Override
@@ -86,7 +86,7 @@ public class ProductSpecificationRef   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductSpecificationRef {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    describing: ").append(toIndentedString(describing)).append("\n");
     sb.append("}");
