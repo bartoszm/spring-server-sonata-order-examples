@@ -1,14 +1,13 @@
 package io.swagger.model;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.model.Describing;
 import org.springframework.validation.annotation.Validated;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * A structured set of well-defined technical attributes and/or behaviors that are used to construct a Product Offering for sale to a market.
@@ -17,7 +16,7 @@ import javax.validation.constraints.*;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
 
-public class ProductSpecificationRef   {
+public class ProductSpecificationRef extends HashMap<String, Object>  {
   @JsonProperty("id")
   private String id = null;
 
@@ -76,19 +75,20 @@ public class ProductSpecificationRef   {
     }
     ProductSpecificationRef productSpecificationRef = (ProductSpecificationRef) o;
     return Objects.equals(this.id, productSpecificationRef.id) &&
-        Objects.equals(this.describing, productSpecificationRef.describing);
+        Objects.equals(this.describing, productSpecificationRef.describing) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, describing);
+    return Objects.hash(id, describing, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductSpecificationRef {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    describing: ").append(toIndentedString(describing)).append("\n");
     sb.append("}");

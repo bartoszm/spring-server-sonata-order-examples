@@ -17,27 +17,27 @@ info:
 host: "serverRoot"
 basePath: "/api/mef/productOrderManagement/v2/"
 schemes:
-- "https"
+  - "https"
 produces:
-- "application/json;charset=utf-8"
+  - "application/json;charset=utf-8"
 tags:
-- name: "ProductOrder"
-  description: "Product Order resource"
-- name: "Hub"
-  description: "Hub resource to manage notification subscription"
-- name: "CancelProductOrder"
-  description: "Request to cancel an order submitted by the buyer.\n\nSeller answers\
+  - name: "ProductOrder"
+    description: "Product Order resource"
+  - name: "Hub"
+    description: "Hub resource to manage notification subscription"
+  - name: "CancelProductOrder"
+    description: "Request to cancel an order submitted by the buyer.\n\nSeller answers\
     \ with a cancel order request state + order state (could be CANCELLED, ASSESSING_CANCELLATION\
     \ or previous order state if seller did not accept cancellation request)."
 paths:
   /productOrder:
     post:
       tags:
-      - "ProductOrder"
+        - "ProductOrder"
       consumes:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       produces:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       operationId: "productOrderCreate"
       summary: "Create a product order"
       description: "This operation is used to create an order. Depending on the order\
@@ -45,12 +45,12 @@ paths:
         \ product."
       deprecated: false
       parameters:
-      - name: "ProductOrder"
-        required: true
-        in: "body"
-        description: ""
-        schema:
-          $ref: "#/definitions/ProductOrder_Create"
+        - name: "ProductOrder"
+          required: true
+          in: "body"
+          description: ""
+          schema:
+            $ref: "#/definitions/ProductOrder_Create"
       responses:
         201:
           description: "Created"
@@ -161,161 +161,161 @@ paths:
             $ref: "#/definitions/ErrorRepresentation"
     get:
       tags:
-      - "ProductOrder"
+        - "ProductOrder"
       produces:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       operationId: "productOrderFind"
       summary: "Find a list of product order(s)"
       description: "This operation is used to retrieve one or more product orders\
         \ based upon filter criteria specified on input."
       deprecated: false
       parameters:
-      - name: "buyerId"
-        required: false
-        in: "query"
-        description: "A Party Role played by an Individual or an Organization that\
+        - name: "buyerId"
+          required: false
+          in: "query"
+          description: "A Party Role played by an Individual or an Organization that\
           \ buys products and services from a Seller. Specifically, the ID of the\
           \ Service Provider (Buyer) organization placing the order."
-        type: "string"
-      - name: "sellerId"
-        required: false
-        in: "query"
-        description: "A Party Role played by an organization that provides products\
+          type: "string"
+        - name: "sellerId"
+          required: false
+          in: "query"
+          description: "A Party Role played by an organization that provides products\
           \ and services to a Buyer.\nSpecifically, the ID of the Partner/Access Provider\
           \ (Seller) organization receiving the order."
-        type: "string"
-      - name: "state"
-        required: false
-        in: "query"
-        description: "The status of the order"
-        type: "string"
-      - name: "buyerRequestedDate.gt"
-        required: false
-        in: "query"
-        description: "Buyer requested date greater than"
-        type: "string"
-        format: "date-time"
-      - name: "buyerRequestedDate.lt"
-        required: false
-        in: "query"
-        description: "Buyer requested date lesser than"
-        type: "string"
-        format: "date-time"
-      - name: "orderDate.gt"
-        required: false
-        in: "query"
-        description: "Date when the order was created greater than"
-        type: "string"
-        format: "date-time"
-      - name: "orderDate.lt"
-        required: false
-        in: "query"
-        description: "Date when the order was created lesser than"
-        type: "string"
-        format: "date-time"
-      - name: "requestedStartDate.gt"
-        required: false
-        in: "query"
-        description: "Buyer requested start date greater than"
-        type: "string"
-        format: "date-time"
-      - name: "requestedStartDate.lt"
-        required: false
-        in: "query"
-        description: "Buyer requested start date lesser than"
-        type: "string"
-        format: "date-time"
-      - name: "requestedCompletionDate.gt"
-        required: false
-        in: "query"
-        description: "Identifies the Buyer's desired due date (requested delivery\
+          type: "string"
+        - name: "state"
+          required: false
+          in: "query"
+          description: "The status of the order"
+          type: "string"
+        - name: "buyerRequestedDate.gt"
+          required: false
+          in: "query"
+          description: "Buyer requested date greater than"
+          type: "string"
+          format: "date-time"
+        - name: "buyerRequestedDate.lt"
+          required: false
+          in: "query"
+          description: "Buyer requested date lesser than"
+          type: "string"
+          format: "date-time"
+        - name: "orderDate.gt"
+          required: false
+          in: "query"
+          description: "Date when the order was created greater than"
+          type: "string"
+          format: "date-time"
+        - name: "orderDate.lt"
+          required: false
+          in: "query"
+          description: "Date when the order was created lesser than"
+          type: "string"
+          format: "date-time"
+        - name: "requestedStartDate.gt"
+          required: false
+          in: "query"
+          description: "Buyer requested start date greater than"
+          type: "string"
+          format: "date-time"
+        - name: "requestedStartDate.lt"
+          required: false
+          in: "query"
+          description: "Buyer requested start date lesser than"
+          type: "string"
+          format: "date-time"
+        - name: "requestedCompletionDate.gt"
+          required: false
+          in: "query"
+          description: "Identifies the Buyer's desired due date (requested delivery\
           \ date) greater than"
-        type: "string"
-        format: "date-time"
-      - name: "requestedCompletionDate.lt"
-        required: false
-        in: "query"
-        description: "Identifies the Buyer's desired due date (requested delivery\
+          type: "string"
+          format: "date-time"
+        - name: "requestedCompletionDate.lt"
+          required: false
+          in: "query"
+          description: "Identifies the Buyer's desired due date (requested delivery\
           \ date) lesser than"
-        type: "string"
-        format: "date-time"
-      - name: "expectedCompletionDate.gt"
-        required: false
-        in: "query"
-        description: "Seller planned completion date greater than"
-        type: "string"
-        format: "date-time"
-      - name: "expectedCompletionDate.lt"
-        required: false
-        in: "query"
-        description: "Seller planned completion date lesser than"
-        type: "string"
-        format: "date-time"
-      - name: "completionDate.gt"
-        required: false
-        in: "query"
-        description: "Effective completion date greater than"
-        type: "string"
-        format: "date-time"
-      - name: "completionDate.lt"
-        required: false
-        in: "query"
-        description: "Effective completion date lesser than"
-        type: "string"
-        format: "date-time"
-      - name: "orderCancellationDate.gt"
-        required: false
-        in: "query"
-        description: "order cancellation date greater than"
-        type: "string"
-        format: "date-time"
-      - name: "orderCancellationDate.lt"
-        required: false
-        in: "query"
-        description: "order cancellation date lesser than"
-        type: "string"
-        format: "date-time"
-      - name: "siteName"
-        required: false
-        in: "query"
-        description: "A name by which the site is known."
-        type: "string"
-      - name: "siteCompanyName"
-        required: false
-        in: "query"
-        description: "The name of the company that is located at the service location.\
+          type: "string"
+          format: "date-time"
+        - name: "expectedCompletionDate.gt"
+          required: false
+          in: "query"
+          description: "Seller planned completion date greater than"
+          type: "string"
+          format: "date-time"
+        - name: "expectedCompletionDate.lt"
+          required: false
+          in: "query"
+          description: "Seller planned completion date lesser than"
+          type: "string"
+          format: "date-time"
+        - name: "completionDate.gt"
+          required: false
+          in: "query"
+          description: "Effective completion date greater than"
+          type: "string"
+          format: "date-time"
+        - name: "completionDate.lt"
+          required: false
+          in: "query"
+          description: "Effective completion date lesser than"
+          type: "string"
+          format: "date-time"
+        - name: "orderCancellationDate.gt"
+          required: false
+          in: "query"
+          description: "order cancellation date greater than"
+          type: "string"
+          format: "date-time"
+        - name: "orderCancellationDate.lt"
+          required: false
+          in: "query"
+          description: "order cancellation date lesser than"
+          type: "string"
+          format: "date-time"
+        - name: "siteName"
+          required: false
+          in: "query"
+          description: "A name by which the site is known."
+          type: "string"
+        - name: "siteCompanyName"
+          required: false
+          in: "query"
+          description: "The name of the company that is located at the service location.\
           \  This may be different from the name of the Buyer that ordered services\
           \ at that site."
-        type: "string"
-      - name: "siteCustomerName"
-        required: false
-        in: "query"
-        description: "The customer name at a site where the service is being delivered"
-        type: "string"
-      - name: "projectId"
-        required: false
-        in: "query"
-        description: "An identifier that is used to group Orders that represent a\
+          type: "string"
+        - name: "siteCustomerName"
+          required: false
+          in: "query"
+          description: "The customer name at a site where the service is being delivered"
+          type: "string"
+        - name: "projectId"
+          required: false
+          in: "query"
+          description: "An identifier that is used to group Orders that represent a\
           \ unit of functionality that is important to a Buyer."
-        type: "string"
-      - name: "externalId"
-        required: false
-        in: "query"
-        description: "A number that uniquely identifies an order within the Buyer's\
+          type: "string"
+        - name: "externalId"
+          required: false
+          in: "query"
+          description: "A number that uniquely identifies an order within the Buyer's\
           \ enterprise."
-        type: "string"
-      - name: "offset"
-        required: false
-        in: "query"
-        description: "Requested index for start of resources to be provided in response\
+          type: "string"
+        - name: "offset"
+          required: false
+          in: "query"
+          description: "Requested index for start of resources to be provided in response\
           \ requested by client"
-        type: "string"
-      - name: "limit"
-        required: false
-        in: "query"
-        description: "Requested number of resources to be provided in response requested\
+          type: "string"
+        - name: "limit"
+          required: false
+          in: "query"
+          description: "Requested number of resources to be provided in response requested\
           \ by client"
-        type: "string"
+          type: "string"
       responses:
         200:
           description: "Ok"
@@ -384,20 +384,20 @@ paths:
   /productOrder/{ProductOrderId}:
     get:
       tags:
-      - "ProductOrder"
+        - "ProductOrder"
       produces:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       operationId: "productOrderGet"
       summary: "Get a product order (by id)"
       description: "This operation is used to retrieve a single product order based\
         \ upon a specified product order id."
       deprecated: false
       parameters:
-      - name: "ProductOrderId"
-        required: true
-        in: "path"
-        description: ""
-        type: "string"
+        - name: "ProductOrderId"
+          required: true
+          in: "path"
+          description: ""
+          type: "string"
       responses:
         200:
           description: "Ok"
@@ -453,22 +453,22 @@ paths:
   /hub:
     post:
       tags:
-      - "Hub"
+        - "Hub"
       consumes:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       produces:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       operationId: "hubCreate"
       summary: "Create a Hub"
       description: "Structure used to create a hub (to subscribe to notification)"
       deprecated: false
       parameters:
-      - name: "Hub"
-        required: true
-        in: "body"
-        description: ""
-        schema:
-          $ref: "#/definitions/HubInput"
+        - name: "Hub"
+          required: true
+          in: "body"
+          description: ""
+          schema:
+            $ref: "#/definitions/HubInput"
       responses:
         201:
           description: "Created"
@@ -523,9 +523,9 @@ paths:
             $ref: "#/definitions/ErrorRepresentation"
     get:
       tags:
-      - "Hub"
+        - "Hub"
       produces:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       operationId: "hubFind"
       summary: "Find a list of Hub"
       description: "Find Hub"
@@ -587,17 +587,17 @@ paths:
   /hub/{HubId}:
     delete:
       tags:
-      - "Hub"
+        - "Hub"
       operationId: "hubDelete"
       summary: "Delete a Hub"
       description: "Delete Hub"
       deprecated: false
       parameters:
-      - name: "HubId"
-        required: true
-        in: "path"
-        description: ""
-        type: "string"
+        - name: "HubId"
+          required: true
+          in: "path"
+          description: ""
+          type: "string"
       responses:
         204:
           description: "No Content"
@@ -651,23 +651,23 @@ paths:
   /cancelProductOrder:
     post:
       tags:
-      - "CancelProductOrder"
+        - "CancelProductOrder"
       consumes:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       produces:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       operationId: "cancelProductOrderCreate"
       summary: "Create product order cancellation request"
       description: "This operation allows buyer to request a product order cancellation\
         \ request "
       deprecated: false
       parameters:
-      - name: "CancelProductOrder"
-        required: true
-        in: "body"
-        description: ""
-        schema:
-          $ref: "#/definitions/CancelProductOrder_Create"
+        - name: "CancelProductOrder"
+          required: true
+          in: "body"
+          description: ""
+          schema:
+            $ref: "#/definitions/CancelProductOrder_Create"
       responses:
         201:
           description: "Created"
@@ -726,25 +726,25 @@ paths:
             $ref: "#/definitions/ErrorRepresentation"
     get:
       tags:
-      - "CancelProductOrder"
+        - "CancelProductOrder"
       produces:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       operationId: "cancelProductOrderFind"
       summary: "Find a lost of product order cancellation request(s)"
       description: "This operation allows buyer to retrieve a list of product order\
         \ cancellation request"
       deprecated: false
       parameters:
-      - name: "productOrderId"
-        required: false
-        in: "query"
-        description: ""
-        type: "string"
-      - name: "productOrderExternalId"
-        required: false
-        in: "query"
-        description: ""
-        type: "string"
+        - name: "productOrderId"
+          required: false
+          in: "query"
+          description: ""
+          type: "string"
+        - name: "productOrderExternalId"
+          required: false
+          in: "query"
+          description: ""
+          type: "string"
       responses:
         200:
           description: "Ok"
@@ -802,20 +802,20 @@ paths:
   /cancelProductOrder/{CancelProductOrderId}:
     get:
       tags:
-      - "CancelProductOrder"
+        - "CancelProductOrder"
       produces:
-      - "application/json;charset=utf-8"
+        - "application/json;charset=utf-8"
       operationId: "cancelProductOrderGet"
       summary: "Get a product order cancellation request (by id)"
       description: "This operation allows buyer to retrieve one product order cancellation\
         \ request"
       deprecated: false
       parameters:
-      - name: "CancelProductOrderId"
-        required: true
-        in: "path"
-        description: ""
-        type: "string"
+        - name: "CancelProductOrderId"
+          required: true
+          in: "path"
+          description: ""
+          type: "string"
       responses:
         200:
           description: "Ok"
@@ -874,98 +874,98 @@ definitions:
       \ seller."
     type: "string"
     enum:
-    - "CONFIRMATION_AND_ENGINEERING_DESIGN"
-    - "CONFIRMATION_ONLY"
-    - "NONE"
+      - "CONFIRMATION_AND_ENGINEERING_DESIGN"
+      - "CONFIRMATION_ONLY"
+      - "NONE"
   OrderActivity:
     description: "The type of order as defined by the business."
     type: "string"
     enum:
-    - "INSTALL"
-    - "CHANGE"
-    - "DISCONNECT"
+      - "INSTALL"
+      - "CHANGE"
+      - "DISCONNECT"
   ProductActionType:
     description: "An enumeration of valid product actions"
     type: "string"
     enum:
-    - "INSTALL"
-    - "CHANGE"
-    - "DISCONNECT"
-    - "NO_CHANGE"
+      - "INSTALL"
+      - "CHANGE"
+      - "DISCONNECT"
+      - "NO_CHANGE"
   PricingMethod:
     description: "An enumeration of valid pricing methods for ordered items"
     type: "string"
     enum:
-    - "TARIFF"
-    - "CONTRACT"
-    - "INDIVIDUAL_CASE_BASIS"
-    - "OTHER"
+      - "TARIFF"
+      - "CONTRACT"
+      - "INDIVIDUAL_CASE_BASIS"
+      - "OTHER"
   Severity:
     description: "Severity of the order message"
     type: "string"
     enum:
-    - "ERROR"
-    - "INFORMATION"
+      - "ERROR"
+      - "INFORMATION"
   ProductOrderStateType:
     description: "An enumeration of valid order states"
     type: "string"
     enum:
-    - "ACKNOWLEDGED"
-    - "REJECTED"
-    - "IN_PROGRESS"
-    - "PENDING"
-    - "HELD"
-    - "ASSESSING_CANCELLATION"
-    - "PENDING_CANCELLATION"
-    - "CANCELLED"
-    - "CONFIGURED"
-    - "CONFIRMED"
-    - "JEOPARDY"
-    - "FAILED"
-    - "PARTIAL"
-    - "COMPLETED"
+      - "ACKNOWLEDGED"
+      - "REJECTED"
+      - "IN_PROGRESS"
+      - "PENDING"
+      - "HELD"
+      - "ASSESSING_CANCELLATION"
+      - "PENDING_CANCELLATION"
+      - "CANCELLED"
+      - "CONFIGURED"
+      - "CONFIRMED"
+      - "JEOPARDY"
+      - "FAILED"
+      - "PARTIAL"
+      - "COMPLETED"
   ProductOrderItemStateType:
     description: "An enumeration of valid order item statuses."
     type: "string"
     enum:
-    - "ACKNOWLEDGED"
-    - "REJECTED"
-    - "IN_PROGRESS"
-    - "PENDING"
-    - "HELD"
-    - "ASSESSING_CANCELLATION"
-    - "PENDING_CANCELLATION"
-    - "CANCELLED"
-    - "CONFIGURED"
-    - "FAILED"
-    - "COMPLETED"
+      - "ACKNOWLEDGED"
+      - "REJECTED"
+      - "IN_PROGRESS"
+      - "PENDING"
+      - "HELD"
+      - "ASSESSING_CANCELLATION"
+      - "PENDING_CANCELLATION"
+      - "CANCELLED"
+      - "CONFIGURED"
+      - "FAILED"
+      - "COMPLETED"
   PriceType:
     description: "Type of price (as of now only recurring and non-recurring are managed)"
     type: "string"
     enum:
-    - "RECURRING"
-    - "NON-RECURRING"
+      - "RECURRING"
+      - "NON-RECURRING"
   ChargePeriod:
     description: "Used to describe a charge period for recurring one"
     type: "string"
     enum:
-    - "DAY"
-    - "WEEK"
-    - "MONTH"
-    - "YEAR"
+      - "DAY"
+      - "WEEK"
+      - "MONTH"
+      - "YEAR"
   TaskStateType:
     description: ""
     type: "string"
     enum:
-    - "ACKNOWLEDGED"
-    - "IN_PROGRESS"
-    - "DONE"
-    - "TERMINATED_WITH_ERROR"
+      - "ACKNOWLEDGED"
+      - "IN_PROGRESS"
+      - "DONE"
+      - "TERMINATED_WITH_ERROR"
   ErrorRepresentation:
     description: "Class used to describe API response error"
     required:
-    - "code"
-    - "reason"
+      - "code"
+      - "reason"
     type: "object"
     properties:
       code:
@@ -998,7 +998,7 @@ definitions:
     description: "References the billing  arrangement that a buyer has with a seller\
       \ that provides products to the customer."
     required:
-    - "id"
+      - "id"
     type: "object"
     properties:
       id:
@@ -1016,7 +1016,7 @@ definitions:
       \ valued bu the buyer and used by the seller in the site resource."
     discriminator: "@type"
     required:
-    - "role"
+      - "role"
     type: "object"
     properties:
       id:
@@ -1057,17 +1057,17 @@ definitions:
     description: "A ProductOrder is a type of business interaction that is used to\
       \ procure a Product based upon a Product Offering."
     required:
-    - "id"
-    - "href"
-    - "externalId"
-    - "orderDate"
-    - "state"
-    - "requestedCompletionDate"
-    - "orderActivity"
-    - "desiredResponses"
-    - "orderVersion"
-    - "relatedParty"
-    - "orderItem"
+      - "id"
+      - "href"
+      - "externalId"
+      - "orderDate"
+      - "state"
+      - "requestedCompletionDate"
+      - "orderActivity"
+      - "desiredResponses"
+      - "orderVersion"
+      - "relatedParty"
+      - "orderItem"
     type: "object"
     properties:
       id:
@@ -1195,9 +1195,9 @@ definitions:
   Note:
     description: "Free form text to clarify or explain the order."
     required:
-    - "text"
-    - "date"
-    - "author"
+      - "text"
+      - "date"
+      - "author"
     type: "object"
     properties:
       text:
@@ -1214,9 +1214,9 @@ definitions:
     description: "An enumeration of the entities that are part of this order expressed\
       \ in terms of a Product Offering or a Product (for a change order)."
     required:
-    - "id"
-    - "action"
-    - "state"
+      - "id"
+      - "action"
+      - "state"
     type: "object"
     properties:
       id:
@@ -1270,9 +1270,9 @@ definitions:
     description: "Structure used to define a product price.\nAn order item could have\
       \ 0-* order item price."
     required:
-    - "priceType"
-    - "name"
-    - "price"
+      - "priceType"
+      - "name"
+      - "price"
     type: "object"
     properties:
       priceType:
@@ -1299,7 +1299,7 @@ definitions:
       \ the allowable set of configurable technical attributes and/or behaviors specified\
       \ in the associated Product Specification"
     required:
-    - "id"
+      - "id"
     type: "object"
     properties:
       id:
@@ -1336,8 +1336,8 @@ definitions:
     description: "This class allows the ability to associate one order item to another\
       \ order item."
     required:
-    - "type"
-    - "id"
+      - "type"
+      - "id"
     type: "object"
     properties:
       type:
@@ -1353,8 +1353,8 @@ definitions:
   ProductRelationship:
     description: "Indicates a relationship between products."
     required:
-    - "type"
-    - "product"
+      - "type"
+      - "product"
     type: "object"
     properties:
       type:
@@ -1366,7 +1366,7 @@ definitions:
   ProductRef:
     description: "Targeted existing product used in product relationship description."
     required:
-    - "id"
+      - "id"
     type: "object"
     properties:
       id:
@@ -1381,9 +1381,9 @@ definitions:
   Hub:
     description: "This resource is used to manage notification subscription."
     required:
-    - "id"
-    - "query"
-    - "callback"
+      - "id"
+      - "query"
+      - "callback"
     type: "object"
     properties:
       id:
@@ -1398,7 +1398,7 @@ definitions:
   Price:
     description: "Provides pre tax amount for a product"
     required:
-    - "preTaxAmount"
+      - "preTaxAmount"
     type: "object"
     properties:
       preTaxAmount:
@@ -1426,10 +1426,10 @@ definitions:
     description: "An entity or organization that is involved in the product order,\
       \ such as the buyer, the seller, the order contact, etc."
     required:
-    - "id"
-    - "role"
-    - "name"
-    - "number"
+      - "id"
+      - "role"
+      - "name"
+      - "number"
     type: "object"
     properties:
       id:
@@ -1464,14 +1464,14 @@ definitions:
     description: "A CreateProductOrder object is provided as input to the product\
       \ order create operation."
     required:
-    - "externalId"
-    - "buyerRequestDate"
-    - "requestedCompletionDate"
-    - "orderActivity"
-    - "desiredResponse"
-    - "orderVersion"
-    - "relatedParty"
-    - "orderItem"
+      - "externalId"
+      - "buyerRequestDate"
+      - "requestedCompletionDate"
+      - "orderActivity"
+      - "desiredResponse"
+      - "orderVersion"
+      - "relatedParty"
+      - "orderItem"
     type: "object"
     properties:
       externalId:
@@ -1568,6 +1568,7 @@ definitions:
         type: "string"
       describing:
         $ref: "#/definitions/Describing"
+    additionalProperties: true
   Describing:
     description: "Polymorphic class to describe request product attribute"
     type: "object"
@@ -1582,9 +1583,9 @@ definitions:
     description: "A ProductOrderItem_Create object is provided as input to the product\
       \ order item create operation."
     required:
-    - "id"
-    - "action"
-    - "productOffering"
+      - "id"
+      - "action"
+      - "productOffering"
     type: "object"
     properties:
       id:
@@ -1636,10 +1637,10 @@ definitions:
     description: "Structure to define GET without id response. A list of productOrder\
       \ matching request criteria. Provides Product order summary view."
     required:
-    - "id"
-    - "externalId"
-    - "orderDate"
-    - "state"
+      - "id"
+      - "externalId"
+      - "orderDate"
+      - "state"
     type: "object"
     properties:
       id:
@@ -1660,10 +1661,10 @@ definitions:
   CancelProductOrder:
     description: "Structure to allow Seller to answer to a cancel order request"
     required:
-    - "id"
-    - "state"
-    - "requestedCancellationDate"
-    - "productOrder"
+      - "id"
+      - "state"
+      - "requestedCancellationDate"
+      - "productOrder"
     type: "object"
     properties:
       id:
@@ -1700,8 +1701,8 @@ definitions:
   OrderMessage:
     description: "An optional array of messages associated with the Order"
     required:
-    - "messageInformation"
-    - "severity"
+      - "messageInformation"
+      - "severity"
     type: "object"
     properties:
       code:
@@ -1724,7 +1725,7 @@ definitions:
   QuoteRef:
     description: "Quote used before this order to define pricing terms"
     required:
-    - "id"
+      - "id"
     type: "object"
     properties:
       id:
@@ -1744,8 +1745,8 @@ definitions:
     description: "This class is used to request a HUB creation - Used in the POST\
       \ operation"
     required:
-    - "query"
-    - "callback"
+      - "query"
+      - "callback"
     type: "object"
     properties:
       query:
@@ -1760,10 +1761,10 @@ definitions:
     description: "Contact allow to capture contact information. It is used to capture\
       \ billing account contact information"
     required:
-    - "contactName"
-    - "phoneNumber"
-    - "emailAdress"
-    - "streetAdress"
+      - "contactName"
+      - "phoneNumber"
+      - "emailAdress"
+      - "streetAdress"
     type: "object"
     properties:
       contactName:
@@ -1791,8 +1792,8 @@ definitions:
   SubUnit:
     description: ""
     required:
-    - "subUnitType"
-    - "subUnitIdentifier"
+      - "subUnitType"
+      - "subUnitIdentifier"
     type: "object"
     properties:
       subUnitType:
@@ -1845,126 +1846,126 @@ definitions:
       \ of boundary or identifier down to the lowest level of detail.  For example\
       \  “street number” is one field, “street name” is another field, etc."
     allOf:
-    - $ref: "#/definitions/RelatedPlaceReforValue"
-    - required:
-      - "streetType"
-      - "city"
-      - "stateOrProvince"
-      - "postcode"
-      - "country"
-      type: "object"
-      properties:
-        streetNr:
-          description: "Number identifying a specific property on a public street.\
+      - $ref: "#/definitions/RelatedPlaceReforValue"
+      - required:
+          - "streetType"
+          - "city"
+          - "stateOrProvince"
+          - "postcode"
+          - "country"
+        type: "object"
+        properties:
+          streetNr:
+            description: "Number identifying a specific property on a public street.\
             \ It may be combined with streetNrLast for ranged addresses"
-          type: "string"
-        streetNrSuffix:
-          description: "The first street number suffix"
-          type: "string"
-        streetNrLast:
-          description: "Last number in a range of street numbers allocated to a property"
-          type: "string"
-        streetNrLastSuffix:
-          description: "Last street number suffix for a ranged address"
-          type: "string"
-        streetName:
-          description: "Name of the street or other street type"
-          type: "string"
-        streetType:
-          description: "Alley, avenue, boulevard, brae, crescent, drive, highway,\
+            type: "string"
+          streetNrSuffix:
+            description: "The first street number suffix"
+            type: "string"
+          streetNrLast:
+            description: "Last number in a range of street numbers allocated to a property"
+            type: "string"
+          streetNrLastSuffix:
+            description: "Last street number suffix for a ranged address"
+            type: "string"
+          streetName:
+            description: "Name of the street or other street type"
+            type: "string"
+          streetType:
+            description: "Alley, avenue, boulevard, brae, crescent, drive, highway,\
             \ lane, terrace, parade, place, tarn, way, wharf"
-          type: "string"
-        streetSuffix:
-          description: "A modifier denoting a relative direction"
-          type: "string"
-        locality:
-          description: "The locality that the address is in"
-          type: "string"
-        city:
-          description: "The city that the address is in"
-          type: "string"
-        stateOrProvince:
-          description: "The State or Province that the address is in"
-          type: "string"
-        postcode:
-          description: "Descriptor for a postal delivery area, used to speed and simplify\
+            type: "string"
+          streetSuffix:
+            description: "A modifier denoting a relative direction"
+            type: "string"
+          locality:
+            description: "The locality that the address is in"
+            type: "string"
+          city:
+            description: "The city that the address is in"
+            type: "string"
+          stateOrProvince:
+            description: "The State or Province that the address is in"
+            type: "string"
+          postcode:
+            description: "Descriptor for a postal delivery area, used to speed and simplify\
             \ the delivery of mail (also known as zipcode)"
-          type: "string"
-        postcodeExtension:
-          description: "An extension of a postal code. E.g. the part following the\
+            type: "string"
+          postcodeExtension:
+            description: "An extension of a postal code. E.g. the part following the\
             \ dash in an american urban property address"
-          type: "string"
-        country:
-          description: "Country that the address is in"
-          type: "string"
-        GeographicSubAddress:
-          $ref: "#/definitions/GeographicSubAddress"
+            type: "string"
+          country:
+            description: "Country that the address is in"
+            type: "string"
+          GeographicSubAddress:
+            $ref: "#/definitions/GeographicSubAddress"
   FormattedAddress:
     description: "A type of Address that has discrete fields for each type of boundary\
       \ or identifier with the exception of street and more specific location details,\
       \ which are combined into a maximum of two strings based on local postal addressing\
       \ conventions."
     allOf:
-    - $ref: "#/definitions/RelatedPlaceReforValue"
-    - required:
-      - "addrLine1"
-      - "city"
-      - "stateOrProvince"
-      - "postcode"
-      - "country"
-      type: "object"
-      properties:
-        addrLine1:
-          description: "The first address line in a formatted address"
-          type: "string"
-        addrLine2:
-          description: "The second address line in a formatted address"
-          type: "string"
-        locality:
-          description: "An area of defined or undefined boundaries within a local\
+      - $ref: "#/definitions/RelatedPlaceReforValue"
+      - required:
+          - "addrLine1"
+          - "city"
+          - "stateOrProvince"
+          - "postcode"
+          - "country"
+        type: "object"
+        properties:
+          addrLine1:
+            description: "The first address line in a formatted address"
+            type: "string"
+          addrLine2:
+            description: "The second address line in a formatted address"
+            type: "string"
+          locality:
+            description: "An area of defined or undefined boundaries within a local\
             \ authority or other legislatively defined area, usually rural or semi\
             \ rural in nature"
-          type: "string"
-        city:
-          description: "The city that the address is in"
-          type: "string"
-        stateOrProvince:
-          description: "The State or Province that the address is in"
-          type: "string"
-        postcode:
-          description: "Descriptor for a postal delivery area, used to speed and simplify\
+            type: "string"
+          city:
+            description: "The city that the address is in"
+            type: "string"
+          stateOrProvince:
+            description: "The State or Province that the address is in"
+            type: "string"
+          postcode:
+            description: "Descriptor for a postal delivery area, used to speed and simplify\
             \ the delivery of mail (also known as ZIP code)"
-          type: "string"
-        postcodeExtension:
-          description: "An extension of a postal code. E.g. the part following the\
+            type: "string"
+          postcodeExtension:
+            description: "An extension of a postal code. E.g. the part following the\
             \ dash in an American urban property address"
-          type: "string"
-        country:
-          description: "Country that the address is in"
-          type: "string"
+            type: "string"
+          country:
+            description: "Country that the address is in"
+            type: "string"
   ReferencedAddress:
     description: "A globally unique identifier controlled by a generally accepted\
       \ independent administrative authority that specifies a fixed geographical location."
     allOf:
-    - $ref: "#/definitions/RelatedPlaceReforValue"
-    - required:
-      - "referenceType"
-      - "referenceId"
-      type: "object"
-      properties:
-        referenceType:
-          description: "The type of the reference. For North American providers this\
+      - $ref: "#/definitions/RelatedPlaceReforValue"
+      - required:
+          - "referenceType"
+          - "referenceId"
+        type: "object"
+        properties:
+          referenceType:
+            description: "The type of the reference. For North American providers this\
             \ would normally be CLLI"
-          type: "string"
-        referenceId:
-          description: "A reference to an address by id; this would include such things\
+            type: "string"
+          referenceId:
+            description: "A reference to an address by id; this would include such things\
             \ as CLLI Codes, or Seller-assigned address identifiers"
-          type: "string"
+            type: "string"
   GeographicPoint:
     description: ""
     required:
-    - "latitude"
-    - "longitude"
+      - "latitude"
+      - "longitude"
     type: "object"
     properties:
       latitude:
@@ -1977,22 +1978,22 @@ definitions:
     description: "A set of coordinates (typically including latitude and longitude)\
       \ that describes a particular loca-tion on earth."
     allOf:
-    - $ref: "#/definitions/RelatedPlaceReforValue"
-    - required:
-      - "spatialRef"
-      - "geographicPoint"
-      type: "object"
-      properties:
-        spatialRef:
-          description: "The spatial reference system used to determine the coordinates"
-          type: "string"
-        geographicPoint:
-          $ref: "#/definitions/GeographicPoint"
+      - $ref: "#/definitions/RelatedPlaceReforValue"
+      - required:
+          - "spatialRef"
+          - "geographicPoint"
+        type: "object"
+        properties:
+          spatialRef:
+            description: "The spatial reference system used to determine the coordinates"
+            type: "string"
+          geographicPoint:
+            $ref: "#/definitions/GeographicPoint"
   Money:
     description: "base / value business entity used to represent money"
     required:
-    - "value"
-    - "unit"
+      - "value"
+      - "unit"
     type: "object"
     properties:
       value:
@@ -2005,7 +2006,7 @@ definitions:
   ProductOrderRefCancel:
     description: "A reference to a product order used to perform cancellation request."
     required:
-    - "id"
+      - "id"
     type: "object"
     properties:
       id:
@@ -2032,8 +2033,8 @@ definitions:
   CancelProductOrder_Create:
     description: ""
     required:
-    - "requestedCancellationDate"
-    - "productOrder"
+      - "requestedCancellationDate"
+      - "productOrder"
     type: "object"
     properties:
       requestedCancellationDate:
