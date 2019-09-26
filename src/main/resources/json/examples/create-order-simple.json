@@ -19,7 +19,9 @@
       "id" : "1011dc26-bdb4-4dee-8770-0efc024a9698"
     },
     "product" : {
+      "@type" : "UNISpec",
       "productSpecification" : {
+
         "id" : "uni1",
         "describing" : {
           "@type" : "UNISpec",
@@ -34,18 +36,19 @@
       "id" : "68932aef-8603-4f87-bdf3-88ec97769be1"
     },
     "product" : {
+      "@type" : "UNISpec",
       "productSpecification" : {
         "id" : "uni2",
         "describing" : {
           "@type" : "UNISpec",
           "@schemaLocation" : "uri:mef:v1:UNISpec"
-        },
-        "synchronousMode" : {
-          "linkMode" : "1",
-          "syncModeEnabled" : true
-        },
-        "physicalLayer" : "10BASE-T"
-      }
+        }
+      },
+      "synchronousMode" : [{
+        "linkMode" : "1",
+        "syncModeEnabled" : true
+      }],
+      "physicalLayer" : ["10BASE-T"]
     }
   }, {
     "id" : "fbe63db3-5116-4b34-b717-9124f24162b8",
@@ -54,6 +57,7 @@
       "id" : "7c2f301d-a105-444e-a157-cc12cd63857e"
     },
     "product" : {
+      "@type" : "Product",
       "productSpecification" : {
         "id" : "eline",
         "describing" : {
