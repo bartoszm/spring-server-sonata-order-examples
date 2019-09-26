@@ -3,6 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.model.ProductRelationship;
@@ -19,6 +21,12 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "One or more services sold to a Buyer by a Seller.  A particular Product Offering defines the technical and commercial attributes and behav-iors of a Product.")
 @Validated
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type", visible = true )
+@JsonSubTypes({
+  @JsonSubTypes.Type(value = UNISpec.class, name = "UNISpec"),
+})
+
 public class Product   {
   @JsonProperty("id")
   private String id = null;
@@ -39,6 +47,9 @@ public class Product   {
   @JsonProperty("productRelationship")
   @Valid
   private List<ProductRelationship> productRelationship = null;
+
+  @JsonProperty("@type")
+  private String type = null;
 
   public Product id(String id) {
     this.id = id;
@@ -179,6 +190,27 @@ public class Product   {
     this.productRelationship = productRelationship;
   }
 
+  public Product type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -194,12 +226,13 @@ public class Product   {
         Objects.equals(this.buyerProductId, product.buyerProductId) &&
         Objects.equals(this.productSpecification, product.productSpecification) &&
         Objects.equals(this.place, product.place) &&
-        Objects.equals(this.productRelationship, product.productRelationship);
+        Objects.equals(this.productRelationship, product.productRelationship) &&
+        Objects.equals(this.type, product.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, buyerProductId, productSpecification, place, productRelationship);
+    return Objects.hash(id, href, buyerProductId, productSpecification, place, productRelationship, type);
   }
 
   @Override
@@ -213,6 +246,7 @@ public class Product   {
     sb.append("    productSpecification: ").append(toIndentedString(productSpecification)).append("\n");
     sb.append("    place: ").append(toIndentedString(place)).append("\n");
     sb.append("    productRelationship: ").append(toIndentedString(productRelationship)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
