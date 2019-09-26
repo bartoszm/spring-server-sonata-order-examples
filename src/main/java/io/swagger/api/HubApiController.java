@@ -22,8 +22,6 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 @Controller
 public class HubApiController implements HubApi {
 

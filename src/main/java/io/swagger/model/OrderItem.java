@@ -27,8 +27,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "An enumeration of the entities that are part of this order expressed in terms of a Product Offering or a Product (for a change order).")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class OrderItem   {
   @JsonProperty("id")
   private String id = null;

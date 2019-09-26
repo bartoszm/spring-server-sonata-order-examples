@@ -15,8 +15,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "Provides pre tax amount for a product")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class Price   {
   @JsonProperty("preTaxAmount")
   private Money preTaxAmount = null;

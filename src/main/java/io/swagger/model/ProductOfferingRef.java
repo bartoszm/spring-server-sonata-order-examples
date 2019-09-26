@@ -14,8 +14,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "The commercial and technical details of a Product sold by a particular Seller.  A Product Offering defines all of the commercial terms and, through association with a particular Product Specification, defines all the technical attributes and behaviors of the Product. A Product Offering may constrain the allowable set of configurable technical attributes and/or behaviors specified in the associated Product Specification")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class ProductOfferingRef   {
   @JsonProperty("id")
   private String id = null;

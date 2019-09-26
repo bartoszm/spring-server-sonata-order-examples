@@ -15,8 +15,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "References the billing  arrangement that a buyer has with a seller that provides products to the customer.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class BillingAccountRef   {
   @JsonProperty("id")
   private String id = null;

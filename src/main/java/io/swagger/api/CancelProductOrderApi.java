@@ -23,8 +23,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 @Api(value = "cancelProductOrder", description = "the cancelProductOrder API")
 public interface CancelProductOrderApi {
 

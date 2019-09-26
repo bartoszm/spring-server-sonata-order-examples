@@ -16,7 +16,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "Place defines the places where the ordered products are sold or delivered. This is an abstract class that allow to define a role for a defined location structure: fielded address, formatted address, geocode, service site or references address.  This class features also site information attributes valued bu the buyer and used by the seller in the site resource.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type", visible = true )
 @JsonSubTypes({
   @JsonSubTypes.Type(value = FieldedAddress.class, name = "FieldedAddress"),

@@ -16,8 +16,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "An entity or organization that is involved in the product order, such as the buyer, the seller, the order contact, etc.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class RelatedParty   {
   @JsonProperty("id")
   private String id = null;

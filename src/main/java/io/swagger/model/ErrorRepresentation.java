@@ -14,8 +14,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "Class used to describe API response error")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class ErrorRepresentation   {
   @JsonProperty("code")
   private Integer code = null;

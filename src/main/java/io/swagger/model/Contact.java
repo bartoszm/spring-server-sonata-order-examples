@@ -14,8 +14,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "Contact allow to capture contact information. It is used to capture billing account contact information")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class Contact   {
   @JsonProperty("contactName")
   private String contactName = null;

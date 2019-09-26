@@ -14,8 +14,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "Targeted existing product used in product relationship description.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class ProductRef   {
   @JsonProperty("id")
   private String id = null;

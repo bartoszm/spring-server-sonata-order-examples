@@ -17,8 +17,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "Structure used to define a product price. An order item could have 0-* order item price.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class OrderItemPrice   {
   @JsonProperty("priceType")
   private PriceType priceType = null;

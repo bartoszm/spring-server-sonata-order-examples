@@ -20,8 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 @Controller
 @Slf4j
 public class ProductOrderApiController implements ProductOrderApi {

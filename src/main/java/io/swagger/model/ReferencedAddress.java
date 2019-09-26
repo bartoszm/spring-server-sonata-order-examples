@@ -15,8 +15,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "A globally unique identifier controlled by a generally accepted independent administrative authority that specifies a fixed geographical location.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class ReferencedAddress extends RelatedPlaceReforValue  {
   @JsonProperty("referenceType")
   private String referenceType = null;

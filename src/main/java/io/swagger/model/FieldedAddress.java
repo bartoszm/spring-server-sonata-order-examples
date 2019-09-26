@@ -16,8 +16,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "A type of Address that has a discrete field and value for each type of boundary or identifier down to the lowest level of detail.  For example  “street number” is one field, “street name” is another field, etc.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class FieldedAddress extends RelatedPlaceReforValue  {
   @JsonProperty("streetNr")
   private String streetNr = null;

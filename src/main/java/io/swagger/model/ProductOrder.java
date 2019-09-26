@@ -26,8 +26,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "A ProductOrder is a type of business interaction that is used to procure a Product based upon a Product Offering.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class ProductOrder   {
   @JsonProperty("id")
   private String id = null;

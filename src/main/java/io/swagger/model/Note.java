@@ -15,8 +15,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "Free form text to clarify or explain the order.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class Note   {
   @JsonProperty("text")
   private String text = null;

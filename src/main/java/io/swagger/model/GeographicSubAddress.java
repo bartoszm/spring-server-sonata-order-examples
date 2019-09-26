@@ -17,8 +17,6 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "It is used for addressing within a property in an urban area (country properties are often defined differently). It may refer to a building, a building cluster, or a floor of a multistory building.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-25T18:12:48.389Z")
-
 public class GeographicSubAddress   {
   @JsonProperty("id")
   private String id = null;
