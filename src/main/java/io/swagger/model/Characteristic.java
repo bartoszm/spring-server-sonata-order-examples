@@ -1,6 +1,8 @@
 package io.swagger.model;
 
+import java.util.HashMap;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -14,7 +16,7 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "extension point")
 @Validated
-public class Characteristic   {
+public class Characteristic  extends HashMap<String, Object> {
   @JsonProperty("@type")
   private String type = null;
 
@@ -48,12 +50,13 @@ public class Characteristic   {
       return false;
     }
     Characteristic characteristic = (Characteristic) o;
-    return Objects.equals(this.type, characteristic.type);
+    return Objects.equals(this.type, characteristic.type)
+            && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type);
+    return Objects.hash(type, super.hashCode());
   }
 
   @Override
@@ -61,6 +64,7 @@ public class Characteristic   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Characteristic {\n");
     
+    sb.append("          ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

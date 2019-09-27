@@ -1343,6 +1343,7 @@ definitions:
       '@type':
         description: "Technical attribute to extend the class."
         type: "string"
+    additionalProperties: true
   OrderItemRelationShip:
     description: "This class allows the ability to associate one order item to another\
       \ order item."
