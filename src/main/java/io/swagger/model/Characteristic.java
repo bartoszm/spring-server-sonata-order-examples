@@ -3,6 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
@@ -14,6 +16,10 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "extension point")
 @Validated
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type", visible = true )
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = UNISpec.class, name = "UNISpec"),
+})
 public class Characteristic   {
   @JsonProperty("@type")
   private String type = null;
