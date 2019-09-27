@@ -41,8 +41,8 @@ public interface ProductOrderApi {
         @ApiResponse(code = 500, message = "Internal Server Error  List of supported error codes: - 1: Internal error", response = ErrorRepresentation.class),
         @ApiResponse(code = 503, message = "Service Unavailable  ", response = ErrorRepresentation.class) })
     @RequestMapping(value = "/productOrder",
-        produces = { "application/json;charset=utf-8" }, 
-        consumes = { "application/json;charset=utf-8" },
+        produces = { "application/json;charset=utf-8", "application/xml" },
+        consumes = { "application/json;charset=utf-8", "application/xml" },
         method = RequestMethod.POST)
     ResponseEntity<ProductOrder> productOrderCreate(@ApiParam(value = "" ,required=true )  @Valid @RequestBody ProductOrderCreate productOrder);
 

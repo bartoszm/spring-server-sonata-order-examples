@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.model.Characteristic;
 import io.swagger.model.ProductRelationship;
 import io.swagger.model.ProductSpecificationRef;
 import io.swagger.model.RelatedPlaceReforValue;
@@ -39,6 +40,9 @@ public class Product   {
   @JsonProperty("productRelationship")
   @Valid
   private List<ProductRelationship> productRelationship = null;
+
+  @JsonProperty("payload")
+  private Characteristic payload = null;
 
   public Product id(String id) {
     this.id = id;
@@ -179,6 +183,27 @@ public class Product   {
     this.productRelationship = productRelationship;
   }
 
+  public Product payload(Characteristic payload) {
+    this.payload = payload;
+    return this;
+  }
+
+  /**
+   * Get payload
+   * @return payload
+  **/
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public Characteristic getPayload() {
+    return payload;
+  }
+
+  public void setPayload(Characteristic payload) {
+    this.payload = payload;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -194,12 +219,13 @@ public class Product   {
         Objects.equals(this.buyerProductId, product.buyerProductId) &&
         Objects.equals(this.productSpecification, product.productSpecification) &&
         Objects.equals(this.place, product.place) &&
-        Objects.equals(this.productRelationship, product.productRelationship);
+        Objects.equals(this.productRelationship, product.productRelationship) &&
+        Objects.equals(this.payload, product.payload);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, buyerProductId, productSpecification, place, productRelationship);
+    return Objects.hash(id, href, buyerProductId, productSpecification, place, productRelationship, payload);
   }
 
   @Override
@@ -213,6 +239,7 @@ public class Product   {
     sb.append("    productSpecification: ").append(toIndentedString(productSpecification)).append("\n");
     sb.append("    place: ").append(toIndentedString(place)).append("\n");
     sb.append("    productRelationship: ").append(toIndentedString(productRelationship)).append("\n");
+    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("}");
     return sb.toString();
   }

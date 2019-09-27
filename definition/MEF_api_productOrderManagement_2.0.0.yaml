@@ -36,8 +36,10 @@ paths:
       - "ProductOrder"
       consumes:
       - "application/json;charset=utf-8"
+      - "application/xml"
       produces:
       - "application/json;charset=utf-8"
+      - "application/xml"
       operationId: "productOrderCreate"
       summary: "Create a product order"
       description: "This operation is used to create an order. Depending on the order\
@@ -1332,6 +1334,15 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/ProductRelationship"
+      payload:
+        $ref: "#/definitions/Characteristic"
+  Characteristic:
+    description: "extension point"
+    type: "object"
+    properties:
+      '@type':
+        description: "Technical attribute to extend the class."
+        type: "string"
   OrderItemRelationShip:
     description: "This class allows the ability to associate one order item to another\
       \ order item."
