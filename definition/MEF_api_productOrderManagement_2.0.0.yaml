@@ -1569,6 +1569,7 @@ definitions:
         type: "string"
       describing:
         $ref: "#/definitions/Describing"
+    additionalProperties: true
   Describing:
     description: "Polymorphic class to describe request product attribute"
     type: "object"
