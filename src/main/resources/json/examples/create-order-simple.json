@@ -62,7 +62,7 @@
         "id" : "eline",
         "describing" : {
           "@type" : "ELineSpec",
-          "@schemaLocation" : "uri:mef:v1:ELineSpec"
+          "@schemaLocation" : "u ri:mef:v1:ELineSpec"
         }
       }
     }
