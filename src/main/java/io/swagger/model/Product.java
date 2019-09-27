@@ -3,6 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.databind.JsonNode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.model.Characteristic;
@@ -42,7 +44,8 @@ public class Product   {
   private List<ProductRelationship> productRelationship = null;
 
   @JsonProperty("payload")
-  private Characteristic payload = null;
+  @JsonRawValue
+  private String payload = null;
 
   public Product id(String id) {
     this.id = id;
@@ -183,11 +186,6 @@ public class Product   {
     this.productRelationship = productRelationship;
   }
 
-  public Product payload(Characteristic payload) {
-    this.payload = payload;
-    return this;
-  }
-
   /**
    * Get payload
    * @return payload
@@ -196,12 +194,12 @@ public class Product   {
 
   @Valid
 
-  public Characteristic getPayload() {
+  public String getPayload() {
     return payload;
   }
 
-  public void setPayload(Characteristic payload) {
-    this.payload = payload;
+  public void setPayload(JsonNode payload) {
+    this.payload = payload.toString();
   }
 
 
